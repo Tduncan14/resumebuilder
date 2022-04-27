@@ -1,0 +1,16 @@
+.layout{
+    height:100vh;
+
+}
+
+
+.header{
+    height:20%;
+    background-color:black;
+    
+
+}
+
+.content{
+    height:80%;
+}

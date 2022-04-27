@@ -1,0 +1,32 @@
+.layout{
+    height:100vh;
+    padding:10px 50px;
+
+}
+
+
+.header{
+    height:10%;
+    background-color:black;
+    color:white;
+    border-radius:1%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:1% 1.5%;
+}
+
+.header h1{
+    color:rgba(255,255,255,0.5);
+    font-size:1.5rem;
+}
+
+.content{
+    height:80%;
+    border:2px solid gray;
+    margin-top:2%;
+    border-radius:1%;
+    box-shadow:0 0 3px rgba(128,128,128, 0.486);
+    padding:10px;
+}
+
