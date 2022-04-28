@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+
 const UserRouter = require('./routes/userRoutes');
 
 
@@ -19,6 +20,13 @@ mongoose.connect(process.env.MONGOURI,{
  console.log(`is connected to the database`) 
     
 })
+
+
+
+// middleware
+
+app.use(express.json());
+app.use('/api',UserRouter)
 
 const port = process.env.PORT || 5000;
 

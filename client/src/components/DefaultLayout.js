@@ -1,6 +1,6 @@
 
 import React from 'react';
-import './../resources/authenication.css'
+import './../resources/layout.css'
 
 
 function DefaultLayout ({children}){

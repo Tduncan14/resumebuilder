@@ -8,7 +8,25 @@ body {
  
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+button{
+  background-color:black !important;
+  box-shadow: none !important;
+  border:none !important;
+  outline:none !important;
+}
+
+
+/* target the input field */
+
+
+input{
+  box-shadow: none !important;
+  outline:none !important;
+}
+
+
+input:focus{
+  outline:none !important;
+  box-shadow:none !important;
+
 }
