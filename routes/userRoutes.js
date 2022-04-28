@@ -11,23 +11,25 @@ app.post('/login', async(req,res) =>{
 
     console.log(req.body)
 
-    const {username,password,email} = req.body
+    console.log('hello')
+    const {password,email} = req.body
 
 
 
     try{
-      const result = await User.findOne({email}).exec((err,res)=>{
-
-        if(!result){
-            return err
-        }
+      const result = await User.findOne({email})
 
 
-        res.json({
+      if(result)(
+
+        res.status(200).json({
             msg:'successful login',
             user:result
         })
-      })
+      
+    
+
+      )
     }
 
     catch(error){
