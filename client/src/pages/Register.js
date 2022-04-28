@@ -1,7 +1,9 @@
 import React ,{useState} from 'react';
-import { Form, Input, Button, Select } from 'antd';
+import { Form, Input, Button, Select, message } from 'antd';
 import '../resources/authenication.css'
 import { Link } from 'react-router-dom';
+import axios from 'axios'
+import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 
 
 
@@ -31,10 +33,24 @@ const Register = ()=> {
 
 
 
-    const onFinish = (values) => {
-
+    const onFinish =  async (values) => {
 
         console.log(values)
+
+
+
+        try{
+            await axios.post('http://localhost:8000/api/register', values)
+            
+        }
+        catch(err){
+            console.log('not connecting to the backend')
+
+            
+
+        }
+
+    
 
     }
 
@@ -44,16 +60,16 @@ const Register = ()=> {
                   <h1>Register</h1>
                   < hr />
                 <Form.Item name="username">
-                     <Input placeholder="username" />
+                     <Input placeholder="username"  />
                 </Form.Item>
 
                 <Form.Item name="password">
-                     <Input placeholder="password" />
+                     <Input.Password placeholder="password" />
                 </Form.Item>
 
 
                 <Form.Item name="confirm password">
-                     <Input placeholder=" confirm password" />
+                     <Input.Password placeholder=" confirm password" />
                 </Form.Item>
 
 

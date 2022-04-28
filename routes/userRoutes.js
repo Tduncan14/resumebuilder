@@ -9,6 +9,8 @@ const app = express.Router();
 
 app.post('/login', async(req,res) =>{
 
+    console.log(req.body)
+
     const {username,password,email} = req.body
 
 
@@ -43,26 +45,36 @@ app.post('/login', async(req,res) =>{
 
 app.post('/register', async (req,res) =>{
 
+    const {username,password,email} = req.body
 
-    const findUser = User.findOne({email}).exec((err,res)=>{
 
-        console.log(`user has been found ${res}`)
-    })
+    console.log(email)
+
+    const findUser =  await User.findOne({email})
+
 
     if(findUser){
-        return console.log('user found')
+        return res.status(304).json({
+            msg:'User was found'
+        })
     }
+  
 
+    console.log(findUser)
+  
 
 
         const newUser =  new User(req.body);
-        await newUser.save()
+        await newUser.save((err,user) =>{
 
-
-        res.status(200).json({
-            msg:'the user is saved',
-            newUser,
+            res.status(200).json({
+                msg:'the user is saved',
+                user,
+            })
         })
+
+
+
     
 })
 
