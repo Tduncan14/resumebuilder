@@ -38,12 +38,20 @@ const Register = ()=> {
         console.log(values)
 
 
+        if(!values.email === undefined){
+            message.error('fill in all the boxes')
+            return 
+        }
+
 
         try{
+
             await axios.post('http://localhost:8000/api/register', values)
+            message.success('register successful')
             
         }
         catch(err){
+            message.error('already a member?')
             console.log('not connecting to the backend')
 
             

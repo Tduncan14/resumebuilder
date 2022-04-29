@@ -19,6 +19,7 @@ app.post('/login', async(req,res) =>{
     try{
       const result = await User.findOne({email})
 
+       result.password = null
 
       if(result)(
 

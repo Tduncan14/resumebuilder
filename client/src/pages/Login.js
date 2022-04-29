@@ -2,10 +2,13 @@ import React from 'react';
 import { Form, Input, Button, Select, message } from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import "../resources/authenication.css";
-import {Link} from 'react-router-dom';
+import {Link,useNavigate} from 'react-router-dom';
 import axios from 'axios';
 
 const Login = () => {
+
+    // to redirect
+    const navigate = useNavigate()
 
 
 
@@ -18,8 +21,12 @@ const Login = () => {
              console.log(values)
           
         
-            await axios.post('http://localhost:8000/api/login',values)
+           const response = await axios.post('http://localhost:8000/api/login',values)
+            
+           console.log( response.data)
+           localStorage.setItem('user',JSON.stringify(response.data.user))
             message.success('login sucess')
+            navigate('/home')
         }
 
         catch(error){
