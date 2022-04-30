@@ -1,7 +1,7 @@
 import React ,{useState} from 'react';
-import { Form, Input, Button, Select, message } from 'antd';
+import { Form, Input, Button, Select, message , Spin, Space} from 'antd';
 import '../resources/authenication.css'
-import { Link } from 'react-router-dom';
+import { Link,useNavigate } from 'react-router-dom';
 import axios from 'axios'
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 
@@ -9,6 +9,7 @@ import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 
 const Register = ()=> {
 
+    const  [loading,setLoading] = useState(false)
     const [name,setName] = useState('')
     const [password,setPassword] = useState('')
     const [email,setEmail] = useState('')
@@ -19,6 +20,9 @@ const Register = ()=> {
         email,
         confirmpassword,
     })
+
+
+    const navigate = useNavigate()
 
 
 
@@ -35,25 +39,24 @@ const Register = ()=> {
 
     const onFinish =  async (values) => {
 
-        console.log(values)
+      setLoading(true);
 
-
-        if(!values.email === undefined){
-            message.error('fill in all the boxes')
-            return 
-        }
 
 
         try{
 
+
             await axios.post('http://localhost:8000/api/register', values)
             message.success('register successful')
+            setLoading(false);
+            navigate('/login')
+            
             
         }
         catch(err){
             message.error('already a member?')
             console.log('not connecting to the backend')
-
+            setLoading(false);
             
 
         }
@@ -64,6 +67,8 @@ const Register = ()=> {
 
     return(
         <div className="auth-parent">
+              {loading && (<Spin size="large" />) 
+              }
             <Form layout="vertical"  onFinish={onFinish}>
                   <h1>Register</h1>
                   < hr />

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Form, Input, Button, Select, message } from 'antd';
+import React ,{useState} from 'react';
+import { Form, Input, Button, Select, message , Spin, Space} from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import "../resources/authenication.css";
 import {Link,useNavigate} from 'react-router-dom';
@@ -7,6 +7,7 @@ import axios from 'axios';
 
 const Login = () => {
 
+    const [loading,setLoading] = useState('');
     // to redirect
     const navigate = useNavigate()
 
@@ -14,7 +15,8 @@ const Login = () => {
 
 
     const onFinish =  async (values) => {
-
+          
+        setLoading(true);
 
         try{
 
@@ -26,11 +28,13 @@ const Login = () => {
            console.log( response.data)
            localStorage.setItem('user',JSON.stringify(response.data.user))
             message.success('login sucess')
+            setLoading(false)
             navigate('/home')
         }
 
         catch(error){
              message.error('failed')
+             setLoading(false)
         }
 
 
@@ -39,6 +43,7 @@ const Login = () => {
 
     return(
         <>
+        {loading && (<Spin size="large"/>)}
         <div className="auth-parent">
         <Form layout="vertical" onFinish={onFinish}>
                   <h1>Login</h1>
