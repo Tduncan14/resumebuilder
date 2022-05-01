@@ -1,10 +1,42 @@
 
 import React from 'react';
 import './../resources/layout.css'
+import 'antd/dist/antd.css';
+import {Dropdown,Button,Menu,Space,DownOutlined} from 'antd'
+import {useNavigate,Link} from 'react-router-dom';
+
+
 
 
 function DefaultLayout ({children}){
 
+  const user = JSON.parse(localStorage.getItem('user'));
+  const navigate = useNavigate();
+
+    // 
+    const menu = (
+      <Menu>
+        <Menu.Item>
+          <Link  to="/home">Home</Link>
+        </Menu.Item>
+        <Menu.Item>
+          <Link to="/profile">Profile</Link>
+        </Menu.Item>
+        <Menu.Item onClick={()=>{
+          localStorage.removeItem('user');
+          navigate('/login')
+
+          
+
+        }}>
+          <a target="_blank" rel="noopener noreferrer" href="/"><span>Logout</span></a>
+        </Menu.Item>
+      </Menu>
+    );
+    
+
+
+    // 
 
     
     return(
@@ -12,6 +44,12 @@ function DefaultLayout ({children}){
             <div className="header">
                 <h1>Resume Builder</h1>
 
+      
+      <Dropdown overlay={menu} placement="bottomLeft">
+        <Button>{user.username}</Button>
+      </Dropdown>
+     
+      
             </div>
 
 

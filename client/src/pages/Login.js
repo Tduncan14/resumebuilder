@@ -1,4 +1,4 @@
-import React ,{useState} from 'react';
+import React ,{useEffect, useState} from 'react';
 import { Form, Input, Button, Select, message , Spin, Space} from 'antd';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import "../resources/authenication.css";
@@ -13,6 +13,13 @@ const Login = () => {
 
 
 
+   useEffect(() =>{
+
+    if(localStorage.getItem('user')){
+        navigate('/home')
+    }
+
+   },[])
 
     const onFinish =  async (values) => {
           

@@ -7,10 +7,23 @@ import DefaultLayout from '../components/DefaultLayout';
 
 const Home = () => {
 
+   const [user,setUser] = useState(JSON.parse(localStorage.getItem('user')))
 
     
+   const  Navigate = useNavigate()
+   
+   
+   useEffect(()=>{
+
+    if(!user){
+      localStorage.removeItem('user');
+      setUser(null);
+     return Navigate('/login')
+    }
 
 
+
+   },[user])
 
 
     return(

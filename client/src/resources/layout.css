@@ -12,7 +12,6 @@
 
 
 .header{
-    height:10%;
     background-color:black;
     color:white;
     border-radius:1%;
@@ -36,3 +35,9 @@
     padding:10px;
 }
 
+
+ .header button{
+     border:1px solid white !important;
+     color:white;
+    
+ }

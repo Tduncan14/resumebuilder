@@ -1,4 +1,4 @@
-import React ,{useState} from 'react';
+import React ,{useState,useEffect} from 'react';
 import { Form, Input, Button, Select, message , Spin, Space} from 'antd';
 import '../resources/authenication.css'
 import { Link,useNavigate } from 'react-router-dom';
@@ -25,6 +25,14 @@ const Register = ()=> {
     const navigate = useNavigate()
 
 
+    useEffect(() =>{
+
+        if(JSON.parse(localStorage.getItem('user'))){
+            navigate('/home')
+        }
+
+
+    },[])
 
      const storeInfo = (e) =>{
 
