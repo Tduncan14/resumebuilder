@@ -1,7 +1,9 @@
 import React from 'react';
 import DefaultLayout from '../components/DefaultLayout';
-import {Form,Tabs } from 'antd';
+import {Form,Tabs,Space,Input,Button } from 'antd';
+import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import PersonalInfo from '../components/PersonalInfo';
+import SkillsEducation from '../components/SkillsEducation';
 
 
 const {TabPane} = Tabs;
@@ -20,7 +22,7 @@ function Profile(){
      <PersonalInfo />
     </TabPane>
     <TabPane tab="Skills and Education" key="2">
-      Content of Tab Pane 2
+       <SkillsEducation />
     </TabPane>
     <TabPane tab="Experience / Projects" key="3">
       Content of Tab Pane 3

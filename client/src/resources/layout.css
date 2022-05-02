@@ -41,3 +41,20 @@
      color:white;
     
  }
+
+
+/* for the ant dash button */
+
+
+.ant-btn-dashed{
+    background:white !important;
+    color:black !important;
+    border:1px dashed gray !important;
+    width:200px !important;
+}
+
+
+.ant-btn-dashed:focus{
+    outline:none !important;
+    border:none !important;
+}
