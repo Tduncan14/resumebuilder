@@ -27,12 +27,17 @@
 }
 
 .content{
-    height:80%;
+
+    height:80vh;
     border:2px solid gray;
     margin-top:2%;
     border-radius:1%;
     box-shadow:0 0 3px rgba(128,128,128, 0.486);
     padding:10px;
+    overflow: auto;
+
+
+ 
 }
 
 

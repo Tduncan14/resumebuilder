@@ -82,5 +82,37 @@ app.post('/register', async (req,res) =>{
 })
 
 
+app.post("/update", async (req,res) => {
+
+    console.log(req.body,'this the backend')
+
+    try{
+
+        console.log('hello')
+
+        await User.findByIdAndUpdate({_id : req.body._id}, req.body);
+
+        const user = await User.findOne({_id : req.body._id});
+
+     
+        res.send(user)
+
+    }
+
+    catch(error){
+        res.status(400).json(error)
+    }
+
+
+
+
+
+
+
+
+
+})
+
+
 
 module.exports = app

@@ -22,11 +22,33 @@ const userSchema = new mongoose.Schema({
         type:String,
         require:true,
         trim:true
-    }
+    },
 
+    firstName:{
+        type:String,
+        default:'',
+    },
 
-
-
+    lastName:{
+        type:String,
+        default:''
+    },
+    email:{
+        type:String,
+        default:''
+    },
+    portfolio:{
+        type:String,
+        default:''
+    },
+    careerObjective:{
+        type:String,
+        default:''
+    },
+    education:{type:Array, default:[]},
+    skills:{type:Array, default:[]},
+    experience:{type:Array, default:[]},
+    projects:{type:Array, default:[]}
 
 
 
