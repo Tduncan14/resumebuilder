@@ -45,6 +45,10 @@ const userSchema = new mongoose.Schema({
         type:String,
         default:''
     },
+    mobileNumber:{
+      type:String,
+      default:''
+    },
     education:{type:Array, default:[]},
     skills:{type:Array, default:[]},
     experience:{type:Array, default:[]},

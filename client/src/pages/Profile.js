@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import DefaultLayout from '../components/DefaultLayout';
 import {Form,Tabs,Space,Input,Button,message,Spin} from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
@@ -7,26 +7,42 @@ import SkillsEducation from '../components/SkillsEducation';
 import ExperienceProject from '../components/ExperienceProject';
 import axios from 'axios';
 
+
 const {TabPane} = Tabs;
 
 function Profile(){
 
 
 
+
   const [loading,setLoading] = useState(false)
-  const user = JSON.parse(localStorage.getItem('user'))
+   const [user,setUser] = useState()
 
 
+   useEffect(()=>{
 
+    if(localStorage.getItem('user')){
+
+       setUser(JSON.parse(localStorage.getItem('user')));
+    }
+
+
+   },[user])
+
+
+   console.log(user,'this is the console.log')
+  
     const onFinish = async (values) =>{
 
       setLoading(true)
 
       try{
-        await axios.post("http://localhost:8000/api/update",{...values,  _id: user._id});
+        const response = await axios.post("http://localhost:8000/api/update",{...values,  _id: user._id});
+        console.log(response.data,' this the data')
+         localStorage.setItem('user',JSON.stringify(response.data))
         setLoading(false)
         message.success('profile updated')
-
+ 
       }
       catch(err)
       {
@@ -45,7 +61,7 @@ function Profile(){
         <div class="update-profile">
         <h2> Update Profile </h2>
       
-        <Form layout = "vertical" onFinish={ onFinish}>
+        <Form layout = "vertical" onFinish={ onFinish} initialValues={user}>
           <Tabs defaultActiveKey="1">
     <TabPane tab="Personal Info" key="1">
      <PersonalInfo />
