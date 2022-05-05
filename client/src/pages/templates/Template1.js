@@ -110,7 +110,7 @@ function Template1 () {
                 {user.skills.map((skill) => {
 
                     return <div className="d-flex  flex-column">
-                        {skill.technology}
+                       <p>  {skill.technology} </p>
 
                         </div>
                 })}
