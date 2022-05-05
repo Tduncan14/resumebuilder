@@ -88,9 +88,30 @@ function Template1 () {
 
                 {user.projects.map((project) => {
 
-                    return <div className="d-flexr  flex-column">
+                    return <div className="d-flex  flex-column">
                         <h6 > <b> {project.title} [{project.range}] </b></h6>
                          <p>{project.rating} </p>
+                        </div>
+                })}
+
+            </div>
+
+
+            <div className="divider  mt-5">
+           
+
+
+           </div>
+
+            <div className="education mt-5">
+                <h3> Skills </h3>
+                <hr />
+
+                {user.skills.map((skill) => {
+
+                    return <div className="d-flex  flex-column">
+                        {skill.technology}
+
                         </div>
                 })}
 
