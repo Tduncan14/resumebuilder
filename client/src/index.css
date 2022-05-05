@@ -32,3 +32,8 @@ input:focus, textarea:focus{
 
 }
 
+.divider{
+  width:100%;
+  height:2px;
+  background-color: gray;
+}

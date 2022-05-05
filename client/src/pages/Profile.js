@@ -16,7 +16,7 @@ function Profile(){
 
 
   const [loading,setLoading] = useState(false)
-   const [user,setUser] = useState()
+   const [user,setUser] = useState(JSON.parse(localStorage.getItem('user')))
 
 
    useEffect(()=>{
