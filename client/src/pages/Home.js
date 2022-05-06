@@ -7,7 +7,6 @@ import DefaultLayout from '../components/DefaultLayout';
 import '../resources/template.css'
 
 
-
 const Home = () => {
 
    const  templates  = [
@@ -42,7 +41,7 @@ const Home = () => {
 
         <DefaultLayout>
           <div className="row home">
-                {templates.map((template) => {
+                {templates.map((template, i ) => {
                  return  <div className="col-md-4 ">
 
                     <div className="template">
@@ -50,6 +49,7 @@ const Home = () => {
 
                        <div className="text">
                        <p>{template.title}</p>
+                       <button onClick={() => Navigate(`/templates/${i + 1}`)}>click</button>
                       </div>
 
                      

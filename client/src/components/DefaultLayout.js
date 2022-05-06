@@ -42,7 +42,7 @@ function DefaultLayout ({children}){
     return(
         <div className="layout">
             <div className="header">
-                <h1>Resume Builder</h1>
+                <h1  className ="homeheader" onClick = {() => navigate('/home')}>Resume Builder</h1>
 
       
       <Dropdown overlay={menu} placement="bottomLeft">

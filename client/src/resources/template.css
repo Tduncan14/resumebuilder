@@ -19,9 +19,17 @@
     left:0;
     right:0;
     opacity:0;
+    flex-direction:column;
 
 }
 
+
+.template button{
+    background-color: white !important;
+    color:black !important;
+    font-size:16px;
+    padding:0 20px;
+}
 
 .text:hover{
     background-color:black;
