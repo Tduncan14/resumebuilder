@@ -13,7 +13,13 @@ const Home = () => {
      {
        title:'Simple Resume',
        image: template1
+     },
+
+     {
+       title:'Second Resume',
+       image: template2
      }
+
 
    ]
 
