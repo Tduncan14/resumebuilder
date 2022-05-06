@@ -52,6 +52,7 @@ const Login = () => {
         <>
         {loading && (<Spin size="large"/>)}
         <div className="auth-parent">
+      
         <Form layout="vertical" onFinish={onFinish}>
                   <h1>Login</h1>
                   < hr />

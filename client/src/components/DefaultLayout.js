@@ -4,6 +4,7 @@ import './../resources/layout.css'
 import 'antd/dist/antd.css';
 import {Dropdown,Button,Menu,Space,DownOutlined} from 'antd'
 import {useNavigate,Link} from 'react-router-dom';
+import {UserOutlined } from '@ant-design/icons'
 
 
 
@@ -46,7 +47,7 @@ function DefaultLayout ({children}){
 
       
       <Dropdown overlay={menu} placement="bottomLeft">
-        <Button>{user.username}</Button>
+        <Button icon ={<UserOutlined />}>{user.username}</Button>
       </Dropdown>
      
       
